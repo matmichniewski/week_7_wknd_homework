@@ -31,30 +31,47 @@ export default {
       this.selectedCharacter = this.characters[selectedIndex];
     });
 
-
-    let pg1 = fetch('https://rickandmortyapi.com/api/character?page=')
-              .then(res => res.json())
-    let pg2 = fetch('https://rickandmortyapi.com/api/character?page=2')
-              .then(res => res.json())
-    let pg3 = fetch('https://rickandmortyapi.com/api/character?page=3')
-              .then(res => res.json())
-    let pg4 = fetch('https://rickandmortyapi.com/api/character?page=4')
-              .then(res => res.json())
-    let pg5 = fetch('https://rickandmortyapi.com/api/character?page=5')
-              .then(res => res.json())
-    let pg6 = fetch('https://rickandmortyapi.com/api/character?page=6')
-              .then(res => res.json())
-
-    Promise.all([pg1, pg2, pg3, pg4, pg5, pg6].flat())
-    .then(pages => pages.forEach(page => this.characters.push(page.results)))
-    .then(a => console.log(this.characters.flat()))
+    // let urls = [
+    //   'https://rickandmortyapi.com/api/character?page=',
+    //   'https://rickandmortyapi.com/api/character?page=2',
+    //   'https://rickandmortyapi.com/api/character?page=3'
+    // ];
+    //
+    // let requests = urls.map(url => fetch(url))
+    //
+    // Promise.all(requests)
+    //   .then(responses => responses.json())
+    //   .then(characters => this.characters.push(characters))
+    //   .then(char => console.log(char))
 
 
+    // let pg1 = fetch('https://rickandmortyapi.com/api/character?page=')
+    //           .then(res => res.json())
+    // let pg2 = fetch('https://rickandmortyapi.com/api/character?page=2')
+    //           .then(res => res.json())
+    // let pg3 = fetch('https://rickandmortyapi.com/api/character?page=3')
+    //           .then(res => res.json())
+    // let pg4 = fetch('https://rickandmortyapi.com/api/character?page=4')
+    //           .then(res => res.json())
+    // let pg5 = fetch('https://rickandmortyapi.com/api/character?page=5')
+    //           .then(res => res.json())
+    // let pg6 = fetch('https://rickandmortyapi.com/api/character?page=6')
+    //           .then(res => res.json())
+    //
+    // Promise.all([pg1, pg2, pg3, pg4, pg5, pg6])
+    // .then(pages => pages.forEach(page => this.characters.push(page.results)))
+    // .then(char => console.log(this.characters.flat()))
 
 
-    // fetch('https://rickandmortyapi.com/api/character?page=')
-    // .then(res => res.json())
-    // .then(characters => this.characters = characters.results)
+
+
+
+    // .then(character => console.log(this.characters.flat()))
+
+    //
+    fetch('https://rickandmortyapi.com/api/character?page=')
+    .then(res => res.json())
+    .then(characters => this.characters = characters.results)
 
   },
 
