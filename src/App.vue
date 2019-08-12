@@ -36,10 +36,18 @@ export default {
               .then(res => res.json())
     let pg2 = fetch('https://rickandmortyapi.com/api/character?page=2')
               .then(res => res.json())
+    let pg3 = fetch('https://rickandmortyapi.com/api/character?page=3')
+              .then(res => res.json())
+    let pg4 = fetch('https://rickandmortyapi.com/api/character?page=4')
+              .then(res => res.json())
+    let pg5 = fetch('https://rickandmortyapi.com/api/character?page=5')
+              .then(res => res.json())
+    let pg6 = fetch('https://rickandmortyapi.com/api/character?page=6')
+              .then(res => res.json())
 
-    Promise.all([pg1, pg2])
+    Promise.all([pg1, pg2, pg3, pg4, pg5, pg6].flat())
     .then(pages => pages.forEach(page => this.characters.push(page.results)))
-
+    .then(a => console.log(this.characters.flat()))
 
 
 
@@ -49,16 +57,6 @@ export default {
     // .then(characters => this.characters = characters.results)
 
   },
-
-
-
-
-
-
-
-
-
-
 
   components: {
     "character-select": CharacterSelect,
@@ -77,7 +75,11 @@ export default {
 }
 
 h1 {
+  font-size: 50px;
   font-family: arial;
   text-align: center;
+  color: #42B8CD;
+  stroke: #73BF26;
+  shadow: 1px 10px 20px #480056;
 }
 </style>
